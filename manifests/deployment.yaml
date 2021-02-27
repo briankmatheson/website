@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website
+  labels:
+    app: website
+    component: ghost
+spec:
+  selector:
+    matchLabels:
+      app: website
+      component: ghost
+  template:
+    metadata:
+      labels:
+        app: website
+        component: ghost
+    spec:
+      containers:
+        - name: ghost
+          image: ghost
+          envFrom:
+          - configMapRef:
+              name: website-config
+          resources:
+            limits:
+              memory: '256Mi'
+              cpu: '500m'
+            requests:
+              memory: '32Mi'
+              cpu: '100m'
+          ports:
+            - containerPort: 2368

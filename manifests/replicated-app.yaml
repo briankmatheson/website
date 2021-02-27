@@ -1,0 +1,14 @@
+apiVersion: kots.io/v1beta1
+kind: Application
+metadata:
+  name: website
+spec:
+  title: Web Site (Ghost)
+  icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/icon/color/kubernetes-icon-color.png
+  statusInformers:
+    - deployment/example-nginx
+  ports:
+    - serviceName: "website-ghost"
+      servicePort: 80
+      localPort: 2368
+      applicationUrl: "http://website-ghost"
