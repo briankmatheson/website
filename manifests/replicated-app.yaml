@@ -6,7 +6,7 @@ spec:
   title: Web Site (Ghost)
   icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/icon/color/kubernetes-icon-color.png
   statusInformers:
-    - deployment/example-nginx
+    - deployment/website-ghost
   ports:
     - serviceName: "website-ghost"
       servicePort: 80
